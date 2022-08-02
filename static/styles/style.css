@@ -9,7 +9,7 @@
     width: 178vh;
     min-height: 80vh;
     padding: 5%;
-    background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)),url("{{url_for('static', filename='images/background.jpeg')}}");
+    background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)),url(/static/images/background.jpeg);
     background-position: center;
     background-size: cover;
     display: flex;
