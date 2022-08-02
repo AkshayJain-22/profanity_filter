@@ -8,6 +8,7 @@ os.putenv('LANG', 'en_US.UTF-8')
 os.putenv('LC_ALL', 'en_US.UTF-8')
 
 @app.route("/",methods=['GET','POST'])
+@cross_origin()
 def index():
     return render_template('index.html')
 
