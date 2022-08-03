@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talk Dirty To Me</title>
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <form action="/begin" method = POST class="comment-bar">
+        <input type="text" placeholder="Place your comment here" name="content">
+        <button type="submit"><img src = "{{url_for('static', filename='/images/search.png')}}"></button>
+    </form>
+<div class="table">
+    <div class="header">Result</div>
+
+    <table cellspacing="0">
+        <tr>
+            <th>Prediction</th>
+            <th widht = "230">Filtered Comment</th>
+        </tr>
+    
+        <tr>
+            <td>{{result['prediciton_output']}}</td>
+            <td>{{result['filtered_comment']}}</td>
+        </tr>
+    </table>
+</div>
+</div>
+</body>
+
+</html>

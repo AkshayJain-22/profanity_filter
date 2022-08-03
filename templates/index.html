@@ -8,11 +8,40 @@
 </head>
 <body>
 <div class="container">
-    <form action="" class="comment-bar">
-        <input type="text" placeholder="Place your comment here" name="q">
-        <button type="Verify"><img src = "{{url_for('static', filename='/images/search.png')}}"></button>
+    <form action="/begin" method = POST class="comment-bar">
+        <input type="text" placeholder="Place your comment here" name="content">
+        <button type="submit"><img src = "{{url_for('static', filename='/images/search.png')}}"></button>
+        
     </form>
-
+</div>
+<div class = "result">
+    {% if result %}
+        <h2>Results</h2><br>
+            <p>Prediction: {{result['prediction_output']}}<br>
+        Updated Comment: {{result['updated_comment']}}</p>
+        <br>
+        <form action="/user_review" method= GET>
+            <div id="wrapper">
+                <legend>Is my Prediction Correct?</legend>
+            
+                <div>
+                  <input type="radio" id="yes" name="drone" value="Y"
+                         checked>
+                  <label for="yes">Yes</label>
+                </div>
+                <div>
+                    <input type="radio" id="no" name="drone" value="N"
+                           checked>
+                    <label for="no">No</label>
+                    <br>
+                    <input type="submit" value="Submit" style = "font-size:20px"/>
+                  </div>
+        </form>
+    {% endif %}
+    {% if accuracy %}
+    <br><br>
+    <h2>Accuracy So Far: {{accuracy['accuracy']}}%</h2>
+    {% endif %}
 </div>
 </body>
 
