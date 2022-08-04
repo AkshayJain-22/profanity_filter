@@ -9,8 +9,9 @@ import re
 def clean_text(text)->str: # this function will clean the text and return it.
     text = str(text).lower()
     text = re.sub('-'," ",text)
-    text = re.sub('@',"a",text)
-    text = re.sub('$','s',text)
+    text = re.sub('[%s]' % re.escape('@'),"a",text)
+    text = re.sub('[%s]' % re.escape('$'),'s',text)
+    text = re.sub('[%s]' % re.escape('&'),'s',text)
     text = re.sub('0','o',text)
     text = re.sub('\[.*?\]', '', text)
     text = re.sub('https?://\S+|www\.\S+', '', text)

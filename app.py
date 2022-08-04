@@ -28,11 +28,12 @@ def begin():
     global updated_comment
 
     if request.method == 'POST':
-        raw_comment = request.form['content'] # obtaining the comment entered in the form
+        raw_comment = request.form['content']
+        comment=raw_comment                      #obtaining the comment entered in the form
     elif request.method == 'GET':
         raw_comment = request.args.getlist('content')
+        comment=raw_comment[0]
 
-    comment=raw_comment[0]
     if len(comment) == 0:
         return render_template('index.html')
     

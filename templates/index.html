@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="/begin" method = GET class="comment-bar">
+    <form action="/begin" method = POST class="comment-bar">
         <input type="text" placeholder="Place your comment here" name="content">
         <button type="submit"><img src = "{{url_for('static', filename='/images/search.png')}}"></button>
         
@@ -18,7 +18,7 @@
     {% if result %}
         <h2>Results</h2><br>
             <p>Prediction: {{result['prediction_output']}}<br>
-        Updated Comment: {{result['updated_comment']}}</p>
+            Updated Comment: {{result['updated_comment']}}</p>
         <br>
         <form action="/user_review" method= GET>
             <div id="wrapper">
