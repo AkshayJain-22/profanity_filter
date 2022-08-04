@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, Response
 from flask_cors import CORS, cross_origin
 from ml_models import abuse_detector
-from perfect_match_models import profanity_filter
+from perfect_match_models import profanity_filter, profanity_filter_inner
 from unique_letters import unique_letters_profanity
 from file_operations import file_entry
 from accuracy_finder import accuracy_record
@@ -57,7 +57,9 @@ def begin():
             else:                                #if ML model says abusive on the second attempt
                 prediction_output='Abusive' 
                 updated_comment=filtered_comment
-    else:                                        #if ML model says abusive in the first attempt
+    elif prediction==1:                         #if ML model says abusive in the first attempt
+        if ('**') not in filtered_comment:
+            filtered_comment = profanity_filter_inner(comment)                                        
         prediction_output='Abusive'
         updated_comment=filtered_comment
 
