@@ -1,12 +1,12 @@
-
+import re
 
 def profanity_filter(comment):
     banned_words=[]
-    with open("Words_to_be_Deleted_sk.csv") as file: #read from file with profane words
+    with open("files/Words_to_be_Deleted_sk.csv") as file: #read from file with profane words
         banned_words=file.readlines()
     lower_comment = str(comment).lower()
     original_words=comment.split()
-    
+
     for word in banned_words:
         word = word.replace("\n","")
         if word in lower_comment.split():             #check each word inside comment

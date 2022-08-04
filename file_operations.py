@@ -6,5 +6,3 @@ def file_entry(record):
     
     with open('records.csv','a') as file:
         record_df.to_csv(file, header=False, index=False)
-
-    print("done in file writing")

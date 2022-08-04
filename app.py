@@ -72,7 +72,6 @@ def store_data():
     if request.method == 'GET':
         review = request.args.getlist('drone')[0]
 
-    print(review)
     if(review=='Y'):
         score = 1
     else:
