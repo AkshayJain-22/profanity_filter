@@ -28,11 +28,14 @@ def begin():
     global updated_comment
 
     if request.method == 'POST':
-        comment = request.form['content'] # obtaining the comment entered in the form
-    
+        raw_comment = request.form['content'] # obtaining the comment entered in the form
+    elif request.method == 'GET':
+        raw_comment = request.args.getlist('content')
+
+    comment=raw_comment[0]
     if len(comment) == 0:
         return render_template('index.html')
-
+    
     prediction = abuse_detector(comment)         #calling our detector function (ML model)
     filtered_comment = profanity_filter(comment) #profanity filter model returns *ed comment
 
