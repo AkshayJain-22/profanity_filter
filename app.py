@@ -5,12 +5,14 @@ from perfect_match_models import profanity_filter, profanity_filter_inner
 from unique_letters import unique_letters_profanity
 from file_operations import file_entry
 from accuracy_finder import accuracy_record
+from db_operations import populate_table
+import pandas as pd
 import os
 
 comment=''
 prediction_output=''
 updated_comment=''
-
+table_name = 'records'
 app=Flask(__name__)
 
 os.putenv('LANG', 'en_US.UTF-8')
@@ -78,8 +80,8 @@ def store_data():
        score = 0
 
     record = {'comment':comment, 'updated_comment':updated_comment,'prediction_output':prediction_output,'score':score}
-    
-    file_entry(record)
+    data = pd.DataFrame([record])
+    populate_table(table_name=table_name,data=data)
     accuracy = {'accuracy':accuracy_record()}
 
     return render_template('index.html', accuracy=accuracy) # showing the result to the user)

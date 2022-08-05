@@ -25,3 +25,4 @@ Werkzeug==2.2.1
 wincertstore==0.2
 zipp==3.8.1
 gunicorn
+psycopg2==2.9.3
