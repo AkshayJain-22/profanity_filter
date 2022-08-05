@@ -12,7 +12,7 @@ import os
 comment=''
 prediction_output=''
 updated_comment=''
-table_name = 'records'
+table_name = 'final_records'
 app=Flask(__name__)
 
 os.putenv('LANG', 'en_US.UTF-8')
