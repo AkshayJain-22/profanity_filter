@@ -49,7 +49,7 @@ def populate_table(table_name: str, data: pd.DataFrame) -> None:
     # Inject data
     for index, row in data.iterrows():
         run_syntax(db_connection=db_connection, syntax=f"INSERT INTO {table_name} VALUES{tuple(row.values)}")
-    db_connection.commit()
+        db_connection.commit()
     db_connection.close()
 
 def read_data(table_name: str):

@@ -13,6 +13,7 @@ def unique_letters_profanity(comment):
     comment = str(comment).lower()
     new_word=[]
     for word in [word for word in comment.split(' ') if word not in stopword]: #iterating through each word in original comment
+        print('words:',word)
         l=[]
         for letter in word:
             l.append(letter)
@@ -29,6 +30,7 @@ def unique_letters_profanity(comment):
     prediction = abuse_detector(new_comment)       #calling our detector function for new comment using unique words
 
     original_words = comment.split()               #what were the words in the actual comment
+    
     profane_return = profanity_filter_inner(new_comment).split() # get the starred comment using unique letter words
     
     for word in range(len(profane_return)):        #iterating through starred comment using unique words
