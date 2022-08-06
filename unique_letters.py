@@ -12,8 +12,9 @@ stopword=["i", "br", "me", "my", "myself", "we", "our", "ours", "ourselves", "yo
 def unique_letters_profanity(comment): 
     comment = str(comment).lower()
     new_word=[]
-    for word in [word for word in comment.split(' ') if word not in stopword]: #iterating through each word in original comment
-        print('words:',word)
+    for word in [word for word in comment.split(' ')]: #iterating through each word in original comment
+        if word in stopword:                       #to prevent stopwords from getting caught as abuse words
+            word = word.upper()
         l=[]
         for letter in word:
             l.append(letter)
