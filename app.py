@@ -1,9 +1,8 @@
-from flask import Flask, request, render_template, Response
-from flask_cors import CORS, cross_origin
+from flask import Flask, request, render_template
+from flask_cors import cross_origin
 from ml_models import abuse_detector
 from perfect_match_models import profanity_filter, profanity_filter_inner
 from unique_letters import unique_letters_profanity
-from file_operations import file_entry
 from accuracy_finder import accuracy_record
 from db_operations import populate_table
 import pandas as pd
@@ -40,7 +39,7 @@ def begin():
         return render_template('index.html')
     while (comment[-1]==' '):
         comment = comment[:-1]
-        
+
     prediction = abuse_detector(comment)         #calling our detector function (ML model)
     filtered_comment = profanity_filter(comment) #profanity filter model returns *ed comment
 

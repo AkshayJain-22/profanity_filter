@@ -2,5 +2,3 @@ venv/
 .git
 .gitignore
 records.csv
-file_operations.py
-README.md
