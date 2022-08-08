@@ -37,8 +37,6 @@ def begin():
 
     if len(comment) == 0:
         return render_template('index.html')
-    while (comment[-1]==' '):
-        comment = comment[:-1]
 
     prediction = abuse_detector(comment)         #calling our detector function (ML model)
     filtered_comment = profanity_filter(comment) #profanity filter model returns *ed comment
