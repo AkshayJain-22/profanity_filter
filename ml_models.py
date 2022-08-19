@@ -10,7 +10,7 @@ def abuse_detector(comment)->int:
     with open("models/abuse_classifier_banned_wrds.sav",'rb') as file:
         model = pickle.load(file)  #load the classification model we saved earlier
     
-    abuse_detector_logger = logger(__name__) #create a logging object
+    abuse_detector_logger = logger() #create a logging object
     filtered_comment = [clean_text(comment)] #cleaning the comment and removing stop words
     
     abuse_detector_logger.log_info(f'filtered_comment: {filtered_comment}')
