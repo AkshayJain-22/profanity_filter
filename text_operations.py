@@ -24,3 +24,24 @@ def clean_text(text)->str: # this function will clean the text and return it.
     text = [stemmer.stem(word) for word in text.split(' ')]
     text=" ".join(text)
     return text
+
+def clean_text_scam(text)->str: # this function will clean the text and return it.
+    text = str(text).lower()
+    text = re.sub('&amp;','',text)
+    text = re.sub('&amp;rsquo;',"'",text)
+    text = re.sub('ï»¿','',text)
+    text = re.sub('â','',text)
+    text = re.sub('ð','',text)
+    text = re.sub('Ÿ','',text)
+    text = re.sub('&quot;','"',text)
+    text = re.sub('\[.*?\]', '', text)
+    text = re.sub('https?://\S+|www\.\S+', '', text)
+    text = re.sub('<.*?>+', '', text)
+    text = re.sub('[%s]' % re.escape('!"#$%&\'()+,-./:;<=>?@[\\]^_`{|}~'), '', text)
+    text = re.sub('\n', '', text)
+    text = re.sub('\w*\d\w*', '', text)
+    text = [word for word in text.split(' ') if word not in stopword]
+    text=" ".join(text)
+    text = [stemmer.stem(word) for word in text.split(' ')]
+    text=" ".join(text)
+    return text
