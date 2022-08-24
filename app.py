@@ -81,15 +81,19 @@ def begin():
 
         if prediction==1:                    #if ML model says abusive in the second attempt
             if ('**') not in filtered_comment:
-                filtered_comment = profanity_filter_inner(comment)                                        
-            prediction_output='Abusive'
+                filtered_comment = profanity_filter_inner(comment)
+            if('**') in filtered_comment:                                      
+                prediction_output='Abusive'
+            else:
+                prediction_output='Not Abusive'
             updated_comment=filtered_comment
     elif(prediction==2):
         prediction_output = 'Spam'
         updated_comment='ban'
 
-    result={'prediction_output':prediction_output,'updated_comment':updated_comment}
-    return render_template('index.html', result=result) # showing the result to the user
+    result={'prediction_output':prediction_output,'original_comment':comment,'updated_comment':updated_comment}
+    #return render_template('index.html', result=result) # showing the result to the user
+    return (result)
 
 
 @app.route("/user_review")
