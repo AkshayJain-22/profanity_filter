@@ -10,7 +10,7 @@ def check_spam(comment)->int:
         with open("models/spam_classifier.sav",'rb') as file:
             model = pickle.load(file)  #load the vectorization model we saved earlier
     except Exception as e:
-        logger.log_error('Could not load models: {e}')
+        spam_logger.log_error(f"Could not load models: {e}")
         prediction=0
     else:    
         filtered_comment = [clean_text_scam(comment)] #cleaning the comment and removing stop words

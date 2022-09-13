@@ -61,7 +61,7 @@ def begin():
                 prediction_output='Abusive' 
                 updated_comment = filtered_comment
                 prediction=1                         #change the prediction to 1 i.e. Abusive
-        
+    
         #Go for second step verification irrespective of first output
         second_prediction, filtered_comment = unique_letters_profanity(filtered_comment) #prediction returned by unique letters method
         
@@ -74,12 +74,12 @@ def begin():
             else:                            #if both models says not abusive
                 prediction_output='Not Abusive'
                 updated_comment=comment
-        else:                                #if ML model says abusive on the second attempt
+        else:                                #if ML model says abusive straightaway on the second attempt
             prediction_output='Abusive' 
             updated_comment=filtered_comment
             prediction=1
 
-        if prediction==1:                    #if ML model says abusive in the second attempt
+        if prediction==1:                    #if ML model says abusive after in the second attempt
             if ('**') not in filtered_comment:
                 filtered_comment = profanity_filter_inner(comment)
             if('**') in filtered_comment:                                      
@@ -87,13 +87,13 @@ def begin():
             else:
                 prediction_output='Not Abusive'
             updated_comment=filtered_comment
+            print(updated_comment)
     elif(prediction==2):
         prediction_output = 'Spam'
         updated_comment='ban'
 
     result={'prediction_output':prediction_output,'original_comment':comment,'updated_comment':updated_comment}
-    #return render_template('index.html', result=result) # showing the result to the user
-    return (result)
+    return render_template('index.html', result=result) # showing the result to the user
 
 
 @app.route("/user_review")
