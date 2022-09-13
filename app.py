@@ -111,7 +111,7 @@ def store_data():
     populate_table(table_name=table_name,data=data)
     accuracy = {'accuracy':accuracy_record()}
 
-   return render_template('index.html', accuracy=accuracy) # showing the result to the user
+    return render_template('index.html', accuracy=accuracy) # showing the result to the user
 
 
 if __name__=="__main__":
