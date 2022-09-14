@@ -14,8 +14,10 @@ def profanity_filter(comment):
         for word in banned_words:
             word = word.replace("\n","")
             if word in lower_comment.split():             #check each word inside comment
+                print('1: ',word)
                 try:
                     lower_comment = lower_comment.replace(word,f"{word[0]}{'*'*(len(word)-1)}") #if match found replace the comment with **
+                    print('2: ',word)
                 except Exception as e:
                     profanity_filter_logger.log_error(f'Error in word {word}: {e}')
         lower_words = lower_comment.split()
@@ -47,6 +49,7 @@ def profanity_filter_inner(comment):
             for i in range(len(lower_comment)):
                 try:
                     if word == lower_comment[i:i+len(word)]:                  #check each word inside comment
+                        print(word)
                         lower_comment = lower_comment.replace(word,f"{word[0]}{'*'*(len(word)-1)}") #if match found replace the comment with *
                 except Exception as e:
                     profanity_filter_inner_logger.log_error('Error in word {word}')

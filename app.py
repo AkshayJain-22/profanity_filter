@@ -87,7 +87,7 @@ def begin():
             else:
                 prediction_output='Not Abusive'
             updated_comment=filtered_comment
-            print(updated_comment)
+        
     elif(prediction==2):
         prediction_output = 'Spam'
         updated_comment='ban'
