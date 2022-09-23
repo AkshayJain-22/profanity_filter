@@ -17,10 +17,10 @@ jobs:
 
       - name: Postgress Credentials
         environment: myenv
-          HOST: ${{ secrets.HOST }} 
-          USER: ${{ secrets.USER }} 
-          PASSWORD: ${{ secrets.PASSWORD }} 
-          DB_NAME: ${{ secrets.DB_NAME }}
+        HOST: ${{ secrets.HOST }} 
+        USER: ${{ secrets.USER }} 
+        PASSWORD: ${{ secrets.PASSWORD }} 
+        DB_NAME: ${{ secrets.DB_NAME }}
         run : echo $HOST
 
 ### ⬇ IMPORTANT PART ⬇ ###
