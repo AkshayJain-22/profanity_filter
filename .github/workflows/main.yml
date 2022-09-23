@@ -17,8 +17,7 @@ jobs:
 
       - name: Postgress Credentials
         run:  |
-          python -m pip install
-          pip install os
+          python -m pip install os
           os.environ['HOST'] = ${{ secrets.HOST }}
           os.environ['USER'] = ${{ secrets.USER }}
           os.environ['PASSWORD'] = ${{ secrets.PASSWORD }}
