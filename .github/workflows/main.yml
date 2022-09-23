@@ -48,6 +48,12 @@ jobs:
           # Additional options of docker build command.
           docker_options: "--no-cache"
 
+          # set the variables for Postgress
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USER }}
+          password: ${{ secrets.PASSWORD }}
+          db_name: ${{ secrets.DB_NAME }}
+
           # (Optional, default: "web")
           # Select the process type for which you want the docker container to be uploaded.
           # By default, this argument is set to "web".
