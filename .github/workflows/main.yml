@@ -15,17 +15,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Postgress Credentials
+        env:
+          # set the variables for Postgress
+            HOST: ${{ secrets.HOST }}
+            USER: ${{ secrets.USER }}
+            PASSWORD: ${{ secrets.PASSWORD }}
+            DB_NAME: ${{ secrets.DB_NAME }}
 
 ### ⬇ IMPORTANT PART ⬇ ###
 
-      - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
-        env:
-          # set the variables for Postgress
-          host: ${{ secrets.HOST }}
-          user: ${{ secrets.USER }}
-          password: ${{ secrets.PASSWORD }}
-          db_name: ${{ secrets.DB_NAME }}
-          
+      - name: Build, Push and Release a Docker container to Heroku. # Your custom step name          
         uses: gonuit/heroku-docker-deploy@v1.3.3 # GitHub action name (leave it as it is).
         with:
           # Below you must provide variables for your Heroku app.

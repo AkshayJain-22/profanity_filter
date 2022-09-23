@@ -3,9 +3,9 @@ import pandas as pd
 import os
 
 host = os.environ['HOST']
-user = os.environ['user']
-password = os.environ['password']
-db_name = os.environ['db_name']
+user = os.environ['USER']
+password = os.environ['PASSWORD']
+db_name = os.environ['DB_NAME']
 
 def run_syntax(db_connection: psycopg2, syntax: str) -> None:
     """
