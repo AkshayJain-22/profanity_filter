@@ -2,7 +2,7 @@ import psycopg2
 import pandas as pd
 import os
 
-host = os.environ['host']
+host = os.environ['HOST']
 user = os.environ['user']
 password = os.environ['password']
 db_name = os.environ['db_name']
