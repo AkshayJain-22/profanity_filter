@@ -10,19 +10,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: myenv
     steps:
       # Check-out your repository.
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Postgress Credentials
-        env:
-          HOST: ${{ secrets.HOST }} 
-          USER: ${{ secrets.USER }} 
-          PASSWORD: ${{ secrets.PASSWORD }} 
-          DB_NAME: ${{ secrets.DB_NAME }}
-        run : echo ${{ secrets.HOST }}
 
 ### ⬇ IMPORTANT PART ⬇ ###
 
