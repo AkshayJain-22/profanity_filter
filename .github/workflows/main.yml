@@ -20,11 +20,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Postgress Credentials
-        env:
-            
-        run: echo ${{ secrets.HOST }}
-
 ### ⬇ IMPORTANT PART ⬇ ###
 
       - name: Build, Push and Release a Docker container to Heroku. # Your custom step name          
