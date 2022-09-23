@@ -22,6 +22,8 @@ jobs:
             USER: ${{ secrets.USER }}
             PASSWORD: ${{ secrets.PASSWORD }}
             DB_NAME: ${{ secrets.DB_NAME }}
+        run: |
+          nbdev_test_nbs
 
 ### ⬇ IMPORTANT PART ⬇ ###
 
