@@ -16,12 +16,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Postgress Credentials
-        run:  |
-          python -m pip install os
-          os.environ['HOST'] = ${{ secrets.HOST }}
-          os.environ['USER'] = ${{ secrets.USER }}
-          os.environ['PASSWORD'] = ${{ secrets.PASSWORD }}
-          os.environ['DB_NAME'] = ${{ secrets.DB_NAME }}
+        run:
+            HOST = ${{ secrets.HOST }} python -c 'import os;print(os.environ['TEST_SECRET'])
+            USER = ${{ secrets.USER }} python -c 'import os;print(os.environ['USER'])
+            PASSWORD = ${{ secrets.PASSWORD }} python -c 'import os;print(os.environ['PASSWORD'])
+            DB_NAME = ${{ secrets.DB_NAME }} python -c 'import os;print(os.environ['DB_NAME'])
 
 ### ⬇ IMPORTANT PART ⬇ ###
 
