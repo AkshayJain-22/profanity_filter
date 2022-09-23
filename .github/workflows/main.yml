@@ -17,7 +17,7 @@ jobs:
 
       - name: Postgress Credentials
         run:
-            HOST = ${{ secrets.HOST }} python -c 'import os;print(os.environ['TEST_SECRET'])
+            HOST = ${{ secrets.HOST }} python -c 'import os;print(os.environ['HOST'])
             USER = ${{ secrets.USER }} python -c 'import os;print(os.environ['USER'])
             PASSWORD = ${{ secrets.PASSWORD }} python -c 'import os;print(os.environ['PASSWORD'])
             DB_NAME = ${{ secrets.DB_NAME }} python -c 'import os;print(os.environ['DB_NAME'])
