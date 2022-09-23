@@ -7,6 +7,11 @@ on:
     branches: [main]
 
 # Your workflows jobs.
+env:
+  HOST : ${{ secrets.HOST }} 
+  USER : ${{ secrets.USER }} 
+  PASSWORD : ${{ secrets.PASSWORD }} 
+  DB_NAME : ${{ secrets.DB_NAME }} 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,11 +22,8 @@ jobs:
 
       - name: Postgress Credentials
         env:
-            HOST : ${{ secrets.HOST }} 
-            USER : ${{ secrets.USER }} 
-            PASSWORD : ${{ secrets.PASSWORD }} 
-            DB_NAME : ${{ secrets.DB_NAME }} 
-        run: python os.environ['HOST']=HOST
+            
+        run: echo ${{ secrets.HOST }}
 
 ### ⬇ IMPORTANT PART ⬇ ###
 
