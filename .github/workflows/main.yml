@@ -15,13 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      -name: Postgress Credentials
-       env:
-          HOST: ${{ secrets.HOST }} 
-          USER: ${{ secrets.USER }} 
-          PASSWORD: ${{ secrets.PASSWORD }} 
-          DB_NAME: ${{ secrets.DB_NAME }}
-       run : echo $HOST
+      - name: Postgress Credentials
+             env:
+               HOST: ${{ secrets.HOST }} 
+               USER: ${{ secrets.USER }} 
+               PASSWORD: ${{ secrets.PASSWORD }} 
+               DB_NAME: ${{ secrets.DB_NAME }}
+             run : echo $HOST
 
 ### ⬇ IMPORTANT PART ⬇ ###
 
